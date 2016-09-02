@@ -9,13 +9,17 @@ package interfaz1;
  *
  * @author vsarmien3
  */
-import clases1.Persona;
+import clases1.*;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
 public class principal extends javax.swing.JFrame {
 
     /**
      * Creates new form principal
      */
-    Persona v[] = new Persona[5];
+   ArrayList<Persona> v = new ArrayList();
+    
+    private int cont;
     public principal() {
         initComponents();
     }
@@ -44,36 +48,36 @@ public class principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtResultado = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de la persona", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de la persona", 0, 0, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Identificación");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jLabel2.setText("Primer nombre");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         jLabel4.setText("Primer apellido");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
-        jPanel2.add(txtIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 120, -1));
-        jPanel2.add(txtPrimernombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 120, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        jPanel2.add(txtIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 160, -1));
+        jPanel2.add(txtPrimernombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 160, -1));
 
         txtPrimerapellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPrimerapellidoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtPrimerapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 120, -1));
+        jPanel2.add(txtPrimerapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 160, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 230, 130));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 280, 160));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones ", 0, 0, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdGuardar.setText("Guardar");
@@ -82,7 +86,7 @@ public class principal extends javax.swing.JFrame {
                 cmdGuardarActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 80, -1));
+        jPanel3.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 80, -1));
 
         cmdMostrar.setText("Mostrar");
         cmdMostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -90,37 +94,42 @@ public class principal extends javax.swing.JFrame {
                 cmdMostrarActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 80, -1));
+        jPanel3.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 80, -1));
 
         cmdLimpiar.setText("Limpiar");
-        jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 80, -1));
+        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 80, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 250, 130));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 250, 150));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("AGREGAR PERSONAS");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos ingresados", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos ingresados", 0, 0, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtResultado.setColumns(20);
+        txtResultado.setRows(5);
+        jScrollPane1.setViewportView(txtResultado);
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 310, 130));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 330, 160));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 330, 160));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
         );
 
         pack();
@@ -132,6 +141,22 @@ public class principal extends javax.swing.JFrame {
 
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
         // TODO add your handling code here:
+        String aux;
+        
+        if(v.isEmpty()) {
+            txtResultado.append("No hay personas que mostrar");
+            txtIdentificacion.requestFocusInWindow();
+        } else {
+        for (int i = 0; i < v.size(); i++) {
+            aux = "Persona No. "+(i+1)+"\n"
+                    + "Identificación: "+v.get(i).getIdentificacion()+"\n"
+                    + "Primer nombre: "+v.get(i).getPrimer_nombre()+"\n"
+                    + "Primer apellido"+v.get(i).getPrimer_apellido()+"\n\n";
+            
+            txtResultado.append(aux);
+                    
+        }
+        }  
     }//GEN-LAST:event_cmdMostrarActionPerformed
 
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
@@ -139,15 +164,38 @@ public class principal extends javax.swing.JFrame {
        Persona p; 
        long identificacion;
        String primer_nombre, primer_apellido;
-       
+        
        identificacion = Long.parseLong(txtIdentificacion.getText());
+       primer_nombre = txtPrimernombre.getText();
+       primer_apellido = txtPrimerapellido.getText();
        
+       p = new Persona (identificacion, primer_nombre, primer_apellido);
+       v.add (p);
+       cont = cont + 1;
+       JOptionPane.showMessageDialog(this, "Persona agregada exitosamente");
        
+       txtIdentificacion.setText("");
+       txtPrimernombre.setText("");
+       txtPrimerapellido.setText("");
+       txtResultado.setText("");
        
-       
-       
-       
+
     }//GEN-LAST:event_cmdGuardarActionPerformed
+
+    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
+        // TODO add your handling code here:
+        int op; 
+        op = JOptionPane.showConfirmDialog(this, "¿Seguro que desea borrar todos los objetos?", "Pregunta", JOptionPane.YES_NO_OPTION);
+        if (op == JOptionPane.YES_OPTION) {
+            v.clear();
+            txtIdentificacion.setText("");
+            txtPrimernombre.setText("");
+            txtPrimerapellido.setText("");
+            txtResultado.setText("");
+            
+            
+        }
+    }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,9 +245,9 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtIdentificacion;
     private javax.swing.JTextField txtPrimerapellido;
     private javax.swing.JTextField txtPrimernombre;
+    private javax.swing.JTextArea txtResultado;
     // End of variables declaration//GEN-END:variables
 }

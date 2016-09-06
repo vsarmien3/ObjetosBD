@@ -171,13 +171,14 @@ public class principal extends javax.swing.JFrame {
        
        p = new Persona (identificacion, primer_nombre, primer_apellido);
        v.add (p);
-       cont = cont + 1;
-       JOptionPane.showMessageDialog(this, "Persona agregada exitosamente");
+       
+       Helper.mensaje(this, "Persona Agregada Exitosamente", "Información", 1);
        
        txtIdentificacion.setText("");
        txtPrimernombre.setText("");
        txtPrimerapellido.setText("");
        txtResultado.setText("");
+       txtIdentificacion.requestFocusInWindow();
        
 
     }//GEN-LAST:event_cmdGuardarActionPerformed
@@ -185,13 +186,14 @@ public class principal extends javax.swing.JFrame {
     private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
         // TODO add your handling code here:
         int op; 
-        op = JOptionPane.showConfirmDialog(this, "¿Seguro que desea borrar todos los objetos?", "Pregunta", JOptionPane.YES_NO_OPTION);
+        op = Helper.mensaje(this, "¿Seguro que desa borrar todos los objetos?", "Pregunta", 3);
         if (op == JOptionPane.YES_OPTION) {
             v.clear();
             txtIdentificacion.setText("");
             txtPrimernombre.setText("");
             txtPrimerapellido.setText("");
             txtResultado.setText("");
+            txtIdentificacion.requestFocusInWindow();
             
             
         }
